@@ -6,8 +6,9 @@ import Home from './pages/Home'
 import Product from './pages/Shop'
 import ProductDetails from './pages/ProductDetails'
 import Contact from './pages/Contact'
-
+// import { useProduct } from './hooks/useProduct'
 function App() {
+  // const products = useProduct()
   return (
     <div className="min-h-screen bg-gray-400">
       {/* navbar */}
