@@ -2,18 +2,18 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Product from './components/Product'
-import ProductDetails from './components/ProductDetails'
-import Contact from './components/Contact'
+import Home from './pages/Home'
+import Product from './pages/Shop'
+import ProductDetails from './pages/ProductDetails'
+import Contact from './pages/Contact'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-400">
       {/* navbar */}
       <Navbar />
 
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto w-full ">
         <Routes>
           {/* Routes */}
           <Route path="/" element={<Home />} />
@@ -24,6 +24,7 @@ function App() {
         </Routes>
       </main>
       {/* toast */}
+
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
   )
