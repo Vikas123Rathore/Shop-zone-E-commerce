@@ -14,7 +14,7 @@ const Hero = () => {
     return () => clearInterval(interval)
   }, [images.length])
   return (
-    <div className="w-full h-[30vh]  md:h-[50vh] lg:h-[70vh]">
+    <div className="w-full h-[30vh]  md:h-[50vh] lg:h-[70vh] my-2 px-6 md:px-10 lg:px-20 rounded-lg overflow-hidden relative">
       <img
         src={images[currentImage]}
         alt="banner"

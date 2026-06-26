@@ -6,11 +6,12 @@ import Home from './pages/Home'
 import Product from './pages/Shop'
 import ProductDetails from './pages/ProductDetails'
 import Contact from './pages/Contact'
+import Footer from './components/Footer'
 // import { useProduct } from './hooks/useProduct'
 function App() {
   // const products = useProduct()
   return (
-    <div className="min-h-screen bg-gray-400">
+    <div className="min-h-screen bg-black text-white">
       {/* navbar */}
       <Navbar />
 
@@ -25,7 +26,7 @@ function App() {
         </Routes>
       </main>
       {/* toast */}
-
+<Footer/>
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
   )
