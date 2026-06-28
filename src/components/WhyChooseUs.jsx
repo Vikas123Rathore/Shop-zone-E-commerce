@@ -2,14 +2,14 @@ import React from "react";
 
 const WhyChooseUs = () => {
   return (
-    <div className="w-full px-6 py-12 bg-linear-to-r from-blue-500 via-purple-500 to-pink-400">
+    <div className="w-full px-6 py-12 bg-linear-to-r from-blue-500 via-black to-pink-400 text-white">
 
       {/* Heading */}
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold">
           Why Choose Us
         </h2>
-        <p className="text-gray-800 mt-2">
+        <p className="text-gray-200 mt-2">
           We provide the best shopping experience for our customers
         </p>
       </div>

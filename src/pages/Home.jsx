@@ -10,7 +10,7 @@ const Home = () => {
   const { products, loading } = useProduct()
 
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-6">
+    <div className="w-full flex flex-col items-center justify-center ">
       <Hero />
       <Trending products={products} loading={loading} />
       <WhyChooseUs />

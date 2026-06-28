@@ -9,7 +9,7 @@ export default function Cta() {
                 }
             `}</style>
 
-            <section className="py-16 bg-slate-100/70 w-full text-center px-2">
+            <section className="py-16 bg-linear-to-l from-yellow-500 via-green-200 to-olive-400 w-full text-center px-2">
                 <p className="text-xl font-medium text-slate-600">Let’s work together!</p>
                 <h2 className="font-medium text-slate-800 text-4xl max-w-lg mx-auto my-4">For work inquires feel free to get in touch with me</h2>
                 <a href="contact@prebuiltui.com" className="text-lg text-slate-600">contact@prebuiltui.com</a>

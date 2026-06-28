@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Product from './pages/Shop'
+import Shop from './pages/Shop'
 import ProductDetails from './pages/ProductDetails'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           {/* Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div>404 Not Found</div>} />
