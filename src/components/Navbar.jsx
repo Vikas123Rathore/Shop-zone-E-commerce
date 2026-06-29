@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { cart } = useContext(CartContext)
+
   return (
     <div>
       <nav className="bg-linear-to-r from-black via-blue-400 to-slate-800 text-white px-6 py-4 shadow-md">
@@ -26,7 +29,7 @@ const Navbar = () => {
                 }`
               }
             >
-              🏠 Home
+              Home
             </NavLink>
             <NavLink
               to="/product"
@@ -38,7 +41,7 @@ const Navbar = () => {
                 }`
               }
             >
-              🛍️ Shop
+              Shop
             </NavLink>
             <NavLink
               to="/contact"
@@ -50,19 +53,16 @@ const Navbar = () => {
                 }`
               }
             >
-              📞 Contact
+              Contact
             </NavLink>
             <NavLink
               to="/cart"
-              className={({ isActive }) =>
-                `px-2 py-2 transition duration-200 ${
-                  isActive
-                    ? 'text-green-400 border-b-2 border-green-400'
-                    : 'hover:text-green-400'
-                }`
-              }
+              className=" px-2 py-2 transition duration-200 relative "
             >
-              🛒 Cart
+              🛒
+              <span className="ml-1 text-sm bg-green-500 rounded-full px-2 py-0.5 absolute -top-1 -right-2">
+                {cart.length}
+              </span>
             </NavLink>
           </div>
 

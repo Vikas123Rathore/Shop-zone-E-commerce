@@ -8,10 +8,11 @@ import ProductDetails from './pages/ProductDetails'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 // import { useProduct } from './hooks/useProduct'
+import Cart from './pages/Cart'
 function App() {
   // const products = useProduct()
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* navbar */}
       <Navbar />
 
@@ -23,10 +24,11 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div>404 Not Found</div>} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
       {/* toast */}
-<Footer/>
+      <Footer />
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
   )

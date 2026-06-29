@@ -1,31 +1,37 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../context/CartContext'
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext)
+
   return (
-    <Link to={`/product/${product.id}`}>
-      <div className="flex flex-col items-center justify-center h-80 w-80  rounded-lg p-4 bg-white border border-gray-400 shadow hover:shadow-lg transition duration-300 hover:scale-105">
+    <div className="flex flex-col items-start justify-center h-80 w-70 rounded-lg p-4 bg-white border border-gray-400 shadow hover:shadow-lg transition duration-300 hover:scale-105">
+      <Link
+        to={`/product/${product.id}`}
+        className="w-full h-40 mb-3 bg-gray-300 py-6 rounded-md flex items-center justify-center overflow-hidden"
+      >
         <img
           src={product.thumbnail}
           alt={product.title}
-          className="w-full h-40 object-cover rounded-md mb-3 bg-transparent"
+          className="w-full h-40 object-cover rounded-md mb-3 object-center"
         />
-        <h2 className=" text-lg mb-1">{product.title}</h2>
-        <div className="flex justify-between items-center w-3/4">
-          <p className="text-green-600 font-semibold">
-            Price: ₹{product.price}
-          </p>
-        </div>
-        <div className="flex justify-between items-center w-full gap-2">
-          <button className="flex justify-center items-center w-1/2 mt-2 bg-green-400 text-white px-2 py-1 rounded-md hover:bg-green-500 cursor-pointer transition duration-300">
-            Add to Cart
-          </button>
-          <button className="flex justify-center items-center w-1/2 mt-2 bg-blue-400 text-white px-2 py-1 rounded-md hover:bg-green-500 cursor-pointer transition duration-300">
-            Buy Now
-          </button>
-        </div>
+      </Link>
+
+      <h2 className="text-lg mb-1 text-gray-800">{product.title}</h2>
+
+      {/* <p className="text-green-600 font-semibold">₹ {product.price}</p> */}
+
+      <div className="flex gap-2 w-full mt-3 justify-between items-center pr-4">
+        <p className="text-green-600 font-semibold border-2 border-slate-400 px-2.5 py-2 rounded-lg">₹ {product.price}</p>
+        <button
+          onClick={() => addToCart(product)}
+          className="w-1/2 bg-green-500 text-white py-2 rounded"
+        >
+          Add to Cart
+        </button>
       </div>
-    </Link>
+    </div>
   )
 }
 

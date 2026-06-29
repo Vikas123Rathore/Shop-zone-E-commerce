@@ -1,21 +1,48 @@
 export default function Footer() {
-    return (
-        <footer className="w-full bg-gradient-to-b from-[#1B004D] to-[#2E0A6F] text-white">
-            <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col items-center">
-                <div className="flex items-center space-x-3 mb-6">
-                    <img alt="" className="h-11"
-                        src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/dummyLogo/prebuiltuiLogoSquareShape.svg" />
-                </div>
-                <p className="text-center max-w-xl text-sm font-normal leading-relaxed">
-                    Empowering creators worldwide with the most advanced AI content creation tools. Transform your ideas
-                    into reality.
-                </p>
-            </div>
-            <div className="border-t border-[#3B1A7A]">
-                <div className="max-w-7xl mx-auto px-6 py-6 text-center text-sm font-normal">
-                    <a href="https://prebuiltui.com">prebuiltui</a> ©2025. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    );
-};
+  return (
+    <footer className="w-full bg-gradient-to-r from-black via-gray-900 to-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-14 flex flex-col items-center">
+
+        {/* Logo */}
+        <h2 className="text-3xl font-bold italic">
+          <span className="text-green-500">S</span>hop Zone
+        </h2>
+
+        {/* Description */}
+        <p className="text-center max-w-2xl mt-4 text-gray-300 leading-7">
+          Shop Zone is your one-stop destination for quality products at
+          affordable prices. Discover the latest fashion, electronics,
+          accessories, and more with a smooth and secure shopping experience.
+        </p>
+
+        {/* Links */}
+        <div className="flex gap-8 mt-8 text-gray-300">
+          <a href="/" className="hover:text-green-400 transition">
+            Home
+          </a>
+
+          <a href="/product" className="hover:text-green-400 transition">
+            Shop
+          </a>
+
+          <a href="/contact" className="hover:text-green-400 transition">
+            Contact
+          </a>
+
+          <a href="/cart" className="hover:text-green-400 transition">
+            Cart
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom */}
+      <div className="border-t border-gray-700">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <p>© 2026 Shop Zone. All Rights Reserved.</p>
+
+          <p>Built with ❤️ using React & Tailwind CSS</p>
+        </div>
+      </div>
+    </footer>
+  )
+}

@@ -15,7 +15,7 @@ const Home = () => {
       <Trending products={products} loading={loading} />
       <WhyChooseUs />
       {/* <NewsLetter /> */}
-      <Cta/>
+      {/* <Cta/> */}
     </div>
   )
 }
