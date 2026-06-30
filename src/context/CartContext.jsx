@@ -5,10 +5,9 @@ export const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
   // ✅ Load from localStorage
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart')
-    return savedCart ? JSON.parse(savedCart) : []
-  })
+  const [cart, setCart] = useState(
+    () => JSON.parse(localStorage.getItem('cart')) || [],
+  )
 
   // ✅ Save to localStorage whenever cart changes
   useEffect(() => {
