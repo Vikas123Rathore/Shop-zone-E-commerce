@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-black via-gray-900 to-slate-900 text-white">
+    <footer className="w-full bg-linear-to-r from-black via-gray-900 to-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-6 py-14 flex flex-col items-center">
 
         {/* Logo */}
