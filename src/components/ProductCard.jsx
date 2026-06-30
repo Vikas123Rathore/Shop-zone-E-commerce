@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         </p>
         {cartItem ? (
           <div className="flex items-center gap-3 bg-green-500 text-white rounded px-3 py-2">
-            <button onClick={() => decreaseQty(product.id)}>-</button>
+            <button  onClick={() => decreaseQty(product.id)}>-</button>
 
             <span>{cartItem.quantity}</span>
 
@@ -37,7 +37,7 @@ const ProductCard = ({ product }) => {
         ) : (
           <button
             onClick={() => addToCart(product)}
-            className="w-1/2 bg-green-500 text-white py-2 rounded"
+            className="w-1/2 bg-green-500 text-white py-2 rounded cursor-pointer"
           >
             Add to Cart
           </button>
