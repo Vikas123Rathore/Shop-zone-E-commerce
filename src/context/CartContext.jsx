@@ -3,13 +3,19 @@ import { toast } from 'react-toastify'
 
 export const CartContext = createContext()
 
-const CartProvider = ({ children }) => {
-  // ✅ Load from localStorage
-  const [cart, setCart] = useState(
-    () => JSON.parse(localStorage.getItem('cart')) || [],
-  )
+const readStoredCart = () => {
+  try {
+    return JSON.parse(localStorage.getItem('cart')) || []
+  } catch {
+    return []
+  }
+}
 
-  // ✅ Save to localStorage whenever cart changes
+const CartProvider = ({ children }) => {
+  //  Load from localStorage
+  const [cart, setCart] = useState(readStoredCart)
+
+  //  Save to localStorage whenever cart changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
@@ -72,6 +78,10 @@ const CartProvider = ({ children }) => {
     toast.error(`Item removed from cart`)
   }
 
+  const clearCart = () => {
+    setCart([])
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -80,6 +90,7 @@ const CartProvider = ({ children }) => {
         increaseQty,
         decreaseQty,
         removeFromCart,
+        clearCart,
       }}
     >
       {children}

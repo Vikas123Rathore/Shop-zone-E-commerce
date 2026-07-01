@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
 
 const Cart = () => {
+  const navigate = useNavigate()
   const [showAddress, setShowAddress] = useState(false)
 
   const { cart, increaseQty, decreaseQty, removeFromCart } =
@@ -83,7 +85,10 @@ const Cart = () => {
                       </h2>
                       <p className="font-body text-[#E0762B] font-semibold mt-1">
                         ₹{item.price.toFixed(2)}
-                        <span className="text-[#8A8175] font-normal"> / unit</span>
+                        <span className="text-[#8A8175] font-normal">
+                          {' '}
+                          / unit
+                        </span>
                       </p>
 
                       {/* Quantity Stepper */}
@@ -140,7 +145,9 @@ const Cart = () => {
                       Delivery Address
                     </p>
                     <div className="flex justify-between items-start">
-                      <p className="font-body text-sm text-[#8A8175]">No address found</p>
+                      <p className="font-body text-sm text-[#8A8175]">
+                        No address found
+                      </p>
                       <button
                         onClick={() => setShowAddress(!showAddress)}
                         className="font-body text-sm font-semibold text-[#E0762B] hover:underline"
@@ -172,20 +179,28 @@ const Cart = () => {
                   <div className="flex flex-col gap-2.5 font-body text-sm">
                     <div className="flex justify-between text-[#5C5648]">
                       <span>Subtotal</span>
-                      <span className="font-medium text-[#1C1A17]">₹{totalPrice.toFixed(2)}</span>
+                      <span className="font-medium text-[#1C1A17]">
+                        ₹{totalPrice.toFixed(2)}
+                      </span>
                     </div>
                     <div className="flex justify-between text-[#5C5648]">
                       <span>Delivery Fee</span>
-                      <span className="font-medium text-[#1C1A17]">₹{deliveryFee.toFixed(2)}</span>
+                      <span className="font-medium text-[#1C1A17]">
+                        ₹{deliveryFee.toFixed(2)}
+                      </span>
                     </div>
                     <div className="flex justify-between text-[#5C5648]">
                       <span>Tax (10%)</span>
-                      <span className="font-medium text-[#1C1A17]">₹{taxAmount.toFixed(2)}</span>
+                      <span className="font-medium text-[#1C1A17]">
+                        ₹{taxAmount.toFixed(2)}
+                      </span>
                     </div>
                   </div>
 
                   <div className="border-t-2 border-[#1C1A17] mt-4 pt-4 flex justify-between items-baseline">
-                    <span className="font-display font-bold text-base">Total</span>
+                    <span className="font-display font-bold text-base">
+                      Total
+                    </span>
                     <span className="font-display font-extrabold text-2xl text-[#E0762B]">
                       ₹{finalPrice.toFixed(2)}
                     </span>
@@ -196,7 +211,10 @@ const Cart = () => {
                 <div className="receipt-edge h-2 bg-[#1C1A17]" />
 
                 <div className="px-6 pb-6 pt-5">
-                  <button className="w-full bg-[#3D6B4F] hover:bg-[#2F5640] text-white font-body font-semibold py-3.5 rounded-xl transition-colors">
+                  <button
+                    onClick={() => navigate('/checkout')}
+                    className="w-full bg-[#3D6B4F] hover:bg-[#2F5640] text-white font-body font-semibold py-3.5 rounded-xl transition-colors"
+                  >
                     Proceed to Checkout
                   </button>
                 </div>

@@ -9,6 +9,8 @@ import Contact from './pages/Contact'
 import Footer from './components/Footer'
 // import { useProduct } from './hooks/useProduct'
 import Cart from './pages/Cart'
+import CheckOut from './pages/CheckOut'
+import OrderSuccess from './pages/OrderSuccess'
 function App() {
   // const products = useProduct()
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<div>404 Not Found</div>} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
         </Routes>
       </main>
       {/* toast */}

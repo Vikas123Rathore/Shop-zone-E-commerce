@@ -1,20 +1,28 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useProduct } from '../hooks/useProduct'
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+
 const ProductDetails = () => {
+  const navigate = useNavigate()
   const { id } = useParams()
   const { addToCart, cart, increaseQty, decreaseQty } = useContext(CartContext)
   const { products, loading } = useProduct()
   // const cartItem = cart.find((item) => item.id === product.id)
   const product = products.find((item) => item.id === Number(id))
- const cartItem = cart.find((item) => item.id === product?.id)
+  const cartItem = cart.find((item) => item.id === product?.id)
   if (loading) {
     return <h1>Loading...</h1>
   }
 
   if (!product) {
     return <h1>Product Not Found</h1>
+  }
+
+  const handleBuyNow = (product) => {
+    console.log('Buy Now clicked for product:', product)
+    addToCart(product) // Add the product to the cart
+    navigate('/checkout', { state: { product } })
   }
 
   return (
@@ -139,7 +147,10 @@ const ProductDetails = () => {
               </button>
             )}
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg">
+            <button
+              onClick={() => handleBuyNow(product)}
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg"
+            >
               Buy Now
             </button>
           </div>

@@ -2,11 +2,12 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { AuthContext } from '../context/AuthContext'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const { cart } = useContext(CartContext)
+  const { user, logout } = useContext(AuthContext)
 
   const navLinkClass = ({ isActive }) =>
     `px-3 py-2 text-sm font-semibold uppercase tracking-wide transition-colors duration-200 ${
@@ -56,17 +57,28 @@ const Navbar = () => {
                 </span>
               )}
             </NavLink>
-
-            <button
-              onClick={() => setIsLoggedIn(!isLoggedIn)}
-              className={`ml-3 px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 border ${
-                isLoggedIn
-                  ? 'border-[#B3433C] text-[#B3433C] hover:bg-[#B3433C] hover:text-white'
-                  : 'border-[#1C1A17] bg-[#1C1A17] text-white hover:bg-[#3D6B4F] hover:border-[#3D6B4F]'
-              }`}
-            >
-              {isLoggedIn ? 'Logout' : 'Login'}
-            </button>
+            {
+              user && (
+                <span className="ml-3 px-4 py-2 rounded-full text-lg font-semibold transition-colors duration-200 border border-[#3D6B4F] text-[#3D6B4F]">
+                  {  user.name.slice(0,1)}
+                </span>
+              )
+            }
+            {user ? (
+              <button
+                onClick={logout}
+                className="ml-3 px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 border border-[#B3433C] text-[#B3433C] hover:bg-[#B3433C] hover:text-white"
+              >
+                Logout
+              </button>
+            ) : (
+              <NavLink
+                to="/checkout"
+                className="ml-3 px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-200 border border-[#1C1A17] bg-[#1C1A17] text-white hover:bg-[#3D6B4F] hover:border-[#3D6B4F]"
+              >
+                Sign in
+              </NavLink>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -109,7 +121,10 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden fixed inset-0 top-[73px] bg-[#b0eaf4] flex flex-col items-center justify-center gap-2 p-6 z-40">
+          <div
+            className="md:hidden fixed inset-0 bg-[#b0eaf4] flex flex-col items-center justify-center gap-2 p-6 z-40"
+            style={{ top: '73px' }}
+          >
             <NavLink
               to="/"
               className={mobileLinkClass}
@@ -138,20 +153,32 @@ const Navbar = () => {
             >
               🛒 Cart
             </NavLink>
-
-            <button
-              onClick={() => {
-                setIsLoggedIn(!isLoggedIn)
-                setMenuOpen(false)
-              }}
-              className={`mt-4 px-8 py-3 rounded-full text-lg font-semibold border-2 transition-colors duration-200 ${
-                isLoggedIn
-                  ? 'border-[#B3433C] text-[#B3433C] hover:bg-[#B3433C] hover:text-white'
-                  : 'border-white text-white hover:bg-[#3D6B4F] hover:border-[#3D6B4F]'
-              }`}
-            >
-              {isLoggedIn ? 'Logout' : 'Login'}
-            </button>
+{
+              user && (
+                <span className="ml-3 px-4 py-2 rounded-full text-lg font-semibold transition-colors duration-200 border border-[#3D6B4F] text-[#3D6B4F]">
+                  {  user.name}
+                </span>
+              )
+            }
+            {user ? (
+              <button
+                onClick={() => {
+                  logout()
+                  setMenuOpen(false)
+                }}
+                className="mt-4 px-8 py-3 rounded-full text-lg font-semibold border-2 border-[#B3433C] text-[#B3433C] hover:bg-[#B3433C] hover:text-white transition-colors duration-200"
+              >
+                Logout
+              </button>
+            ) : (
+              <NavLink
+                to="/checkout"
+                onClick={() => setMenuOpen(false)}
+                className="mt-4 px-8 py-3 rounded-full text-lg font-semibold border-2 border-white text-white hover:bg-[#3D6B4F] hover:border-[#3D6B4F] transition-colors duration-200"
+              >
+                Sign in
+              </NavLink>
+            )}
           </div>
         )}
       </nav>
