@@ -78,7 +78,7 @@ Clone the repository
 git clone https://github.com/Vikas123Rathore/Shop-zone-E-commerce
 ```
 ```bash
-live demo
+live demo https://shopwithtrend.netlify.app/
 ```
 
 Move into the project folder
