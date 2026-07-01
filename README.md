@@ -77,6 +77,9 @@ Clone the repository
 ```bash
 git clone https://github.com/Vikas123Rathore/Shop-zone-E-commerce
 ```
+```bash
+live demo
+```
 
 Move into the project folder
 
