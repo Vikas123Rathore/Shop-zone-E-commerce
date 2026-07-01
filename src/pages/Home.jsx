@@ -4,8 +4,7 @@ import { useProduct } from '../hooks/useProduct'
 import ProductCard from '../components/ProductCard'
 import Trending from '../components/Trending'
 import WhyChooseUs from '../components/WhyChooseUs'
-import NewsLetter from '../components/NewsLetter'
-import Cta from '../components/Cta'
+
 const Home = () => {
   const { products, loading } = useProduct()
 
@@ -14,8 +13,7 @@ const Home = () => {
       <Hero />
       <Trending products={products} loading={loading} />
       <WhyChooseUs />
-      {/* <NewsLetter /> */}
-      {/* <Cta/> */}
+
     </div>
   )
 }
